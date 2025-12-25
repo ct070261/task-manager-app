@@ -10,10 +10,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -595,18 +598,14 @@ public class MainController {
             
             // Tạo content
             VBox content = new VBox(15);
-            content.setPadding(new javafx.geometry.Insets(20));
+            content.setPadding(new Insets(20));
             
             DatePicker sourceDate = new DatePicker(datePicker.getValue());
             DatePicker targetDate = new DatePicker(LocalDate.now());
             
             ListView<Task> taskListView = new ListView<>();
             taskListView.setPrefHeight(200);
-            taskListView.setCellFactory(lv -> new CheckBoxListCell<>(task -> {
-                javafx.beans.property.BooleanProperty observable = 
-                    new javafx.beans.property.SimpleBooleanProperty(false);
-                return observable;
-            }, task -> task.getTitle()));
+            taskListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
             
             // Load tasks khi chọn ngày nguồn
             sourceDate.setOnAction(e -> {
@@ -622,13 +621,32 @@ public class MainController {
             List<Task> initialTasks = taskDAO.findPendingByDate(sourceDate.getValue());
             taskListView.getItems().setAll(initialTasks);
             
+            // Custom cell factory to display task info
+            taskListView.setCellFactory(param -> new ListCell<Task>() {
+                @Override
+                protected void updateItem(Task task, boolean empty) {
+                    super.updateItem(task, empty);
+                    if (empty || task == null) {
+                        setText(null);
+                    } else {
+                        String priorityIcon = switch (task.getPriority()) {
+                            case HIGH -> "🔴";
+                            case MEDIUM -> "🟡";
+                            case LOW -> "🟢";
+                        };
+                        setText(priorityIcon + " " + task.getTitle());
+                    }
+                }
+            });
+            
             content.getChildren().addAll(
                 new Label("Ngày nguồn:"),
                 sourceDate,
                 new Label("Ngày đích:"),
                 targetDate,
                 new Label("Chọn tasks cần copy (chỉ hiển thị tasks chưa hoàn thành):"),
-                taskListView
+                taskListView,
+                new Label("Nhấn Ctrl+Click để chọn nhiều tasks")
             );
             
             dialog.getDialogPane().setContent(content);

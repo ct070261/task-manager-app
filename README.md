@@ -35,8 +35,9 @@
 
 ### Phần mềm cần cài đặt:
 
-1. **JDK 21**
-   - Download: https://www.oracle.com/java/technologies/downloads/#java21
+1. **JDK 17 hoặc cao hơn (JDK 21 khuyến nghị)**
+   - Download JDK 21: https://www.oracle.com/java/technologies/downloads/#java21
+   - Hoặc JDK 17: https://www.oracle.com/java/technologies/downloads/#java17
    - Hoặc OpenJDK: https://adoptium.net/
    - Sau khi cài, kiểm tra: `java -version`
 
@@ -243,7 +244,7 @@ mvn javafx:run
 - JavaFX dependencies chưa được download
 
 **Giải pháp:**
-1. Đảm bảo đang dùng JDK 21 (không phải JRE)
+1. Đảm bảo đang dùng JDK 17 hoặc cao hơn (không phải JRE)
 2. Chạy `mvn clean install` để download dependencies
 3. Nếu dùng IntelliJ, đảm bảo Maven đã import xong
 4. Run bằng Maven: `mvn javafx:run`
@@ -316,7 +317,7 @@ task-manager-app/
 ## 🔧 Công nghệ sử dụng
 
 - **JavaFX 21**: Framework UI cho ứng dụng desktop
-- **JDK 21**: Java Development Kit phiên bản mới nhất
+- **JDK 17+**: Java Development Kit (tương thích với JDK 17, 18, 19, 20, 21)
 - **MySQL 8.0**: Relational database
 - **Maven**: Build tool và dependency management
 - **JDBC**: Java Database Connectivity
