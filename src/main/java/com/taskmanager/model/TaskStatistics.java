@@ -19,7 +19,7 @@ public class TaskStatistics {
     private Map<Task.Priority, Integer> tasksByPriority;
     private Map<Task.Priority, Integer> completedByPriority;
     
-    // Thống kế theo ngày
+    // Thống kê theo ngày
     private Map<LocalDate, Integer> tasksByDate;
     private Map<LocalDate, Integer> completedByDate;
     private Map<LocalDate, Double> completionRateByDate;
