@@ -31,6 +31,18 @@
 - ✅ Biểu đồ tròn: Phân bố theo độ ưu tiên
 - ✅ Bộ lọc thời gian: 7 ngày, 30 ngày, tháng này, hoặc tùy chỉnh
 
+### 5. Lịch sử công việc (Calendar History) 🆕
+- ✅ Hiển thị lịch theo tháng với màu sắc biểu thị mức độ hoàn thành
+- ✅ Màu sắc theo số lượng task hoàn thành:
+  - **Xám nhạt**: Không có task
+  - **Đỏ nhạt**: Có task nhưng chưa hoàn thành
+  - **Xanh nhạt**: 1-2 task hoàn thành
+  - **Xanh vừa**: 3-5 task hoàn thành
+  - **Xanh đậm**: 6+ task hoàn thành
+- ✅ Click vào ngày để xem chi tiết tasks và ghi chú
+- ✅ Điều hướng giữa các tháng (Tháng trước / Tháng sau / Hôm nay)
+- ✅ Hiển thị tỷ lệ hoàn thành và danh sách task cho ngày được chọn
+
 ## 📋 Yêu cầu hệ thống
 
 ### Phần mềm cần cài đặt:
@@ -190,7 +202,28 @@ mvn javafx:run
 
 **Lưu ý:** Mỗi ngày chỉ có 1 đánh giá. Nếu đã có đánh giá, form sẽ load dữ liệu cũ để bạn chỉnh sửa.
 
-### 4. Xem Thống kê
+### 4. Xem Lịch sử Công việc
+
+1. Click nút **"Lịch sử"** trên toolbar hoặc chọn menu **Xem → Lịch sử công việc** (Ctrl+H)
+2. Xem lịch theo tháng với màu sắc:
+   - **Xám nhạt (#ecf0f1)**: Không có task nào
+   - **Đỏ nhạt (#fadbd8)**: Có task nhưng chưa hoàn thành task nào
+   - **Xanh nhạt (#d5f4e6)**: Hoàn thành 1-2 task
+   - **Xanh vừa (#82e0aa)**: Hoàn thành 3-5 task
+   - **Xanh đậm (#27ae60)**: Hoàn thành 6+ task
+3. Click vào bất kỳ ngày nào để xem:
+   - Danh sách tasks trong ngày đó
+   - Ghi chú đánh giá cuối ngày (nếu có)
+   - Thống kê: Tổng số tasks, hoàn thành, tỷ lệ %
+4. Điều hướng:
+   - Click **"◀ Tháng trước"** để xem tháng trước
+   - Click **"Tháng sau ▶"** để xem tháng sau
+   - Click **"Hôm nay"** để quay về tháng hiện tại
+5. Ngày hôm nay được đánh dấu viền đỏ, ngày được chọn có viền xanh
+
+**Tip:** Dùng lịch sử để review lại các ngày làm việc hiệu quả và học hỏi từ các ngày làm việc kém hiệu quả.
+
+### 5. Xem Thống kê
 
 1. Click nút **"Thống kê"** trên toolbar
 2. Chọn khoảng thời gian:
@@ -352,6 +385,7 @@ task-manager-app/
 3. **Copy tasks chưa xong**: Đừng quên tasks của hôm qua
 4. **Đánh giá cuối ngày**: Review và rút kinh nghiệm
 5. **Xem thống kê định kỳ**: Theo dõi hiệu suất hàng tuần/tháng
+6. **Dùng lịch sử để học hỏi**: Xem lại các ngày làm việc hiệu quả (màu xanh đậm) và tìm hiểu lý do thành công
 
 ## 👨‍💻 Phát triển thêm
 
