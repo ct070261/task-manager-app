@@ -442,6 +442,11 @@ public class MainController {
     }
     
     @FXML
+    private void handleShowCalendarHistory() {
+        showCalendarHistoryWindow();
+    }
+    
+    @FXML
     private void handleAbout() {
         AlertUtil.showInfo("Về ứng dụng", 
             "Task Manager v1.0.0\n\n" +
@@ -582,6 +587,25 @@ public class MainController {
             stage.show();
         } catch (IOException e) {
             AlertUtil.showError("Lỗi", "Không thể mở cửa sổ thống kê: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Hiển thị cửa sổ lịch sử công việc theo lịch
+     */
+    private void showCalendarHistoryWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/calendar-history.fxml"));
+            Scene scene = new Scene(loader.load());
+            
+            Stage stage = new Stage();
+            stage.setTitle("Lịch Sử Công Việc");
+            stage.setScene(scene);
+            stage.initModality(Modality.NONE);
+            stage.show();
+        } catch (IOException e) {
+            AlertUtil.showError("Lỗi", "Không thể mở cửa sổ lịch sử: " + e.getMessage());
             e.printStackTrace();
         }
     }
