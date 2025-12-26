@@ -140,6 +140,15 @@ Xem hướng dẫn chi tiết trong file [BUILD.md](BUILD.md)
 
 **Lưu ý:** File `application.properties` phải nằm cùng thư mục với file `.jar`
 
+**⚠️ Lưu ý Bảo mật:**
+- Cấu hình mặc định sử dụng `useSSL=false` để đơn giản hóa kết nối localhost
+- Nếu kết nối qua mạng hoặc môi trường production, nên bật SSL:
+  ```properties
+  db.url=jdbc:mysql://localhost:3306/task_manager_db?useSSL=true&requireSSL=true&verifyServerCertificate=true
+  ```
+- Không chia sẻ mật khẩu database trong file cấu hình
+- Bảo vệ file `application.properties` với quyền hạn phù hợp
+
 ### Bước 5: Chạy ứng dụng
 
 #### Windows:

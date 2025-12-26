@@ -181,6 +181,27 @@ jpackage --input target --name TaskManager --main-jar task-manager-app-1.0.0-exe
    - Download: https://dev.mysql.com/downloads/mysql/
    - Hoặc XAMPP/WAMP
 
+### ⚠️ Lưu ý Bảo mật
+
+Khi phân phối ứng dụng, cần lưu ý các vấn đề bảo mật sau:
+
+1. **Kết nối Database:**
+   - Cấu hình mặc định sử dụng `useSSL=false` cho đơn giản (chỉ phù hợp với localhost)
+   - Với môi trường production hoặc kết nối qua mạng, bật SSL:
+     ```properties
+     db.url=jdbc:mysql://hostname:3306/task_manager_db?useSSL=true&requireSSL=true&verifyServerCertificate=true
+     ```
+
+2. **Bảo vệ Thông tin:**
+   - Không hard-code mật khẩu trong source code
+   - Sử dụng file `application.properties` bên ngoài JAR
+   - Bảo vệ file cấu hình với quyền hạn phù hợp (chmod 600)
+
+3. **Khuyến nghị:**
+   - Sử dụng mật khẩu mạnh cho MySQL
+   - Không dùng tài khoản `root` cho production
+   - Tạo user riêng với quyền hạn tối thiểu cần thiết
+
 ### Các bước cài đặt:
 
 1. **Cài đặt Java**

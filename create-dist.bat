@@ -38,6 +38,12 @@ xcopy database dist\database\ /E /I /Y
 REM Copy sample application.properties
 echo Creating sample configuration...
 (
+echo # Task Manager Application Configuration
+echo # 
+echo # SECURITY WARNING: This configuration uses useSSL=false for simplicity.
+echo # For production use, enable SSL with proper certificates:
+echo # useSSL=true^&requireSSL=true^&verifyServerCertificate=true
+echo.
 echo db.url=jdbc:mysql://localhost:3306/task_manager_db?useSSL=false^&serverTimezone=UTC^&allowPublicKeyRetrieval=true
 echo db.username=root
 echo db.password=YOUR_MYSQL_PASSWORD

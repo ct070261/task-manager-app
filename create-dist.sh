@@ -35,8 +35,14 @@ echo "Copying database files..."
 cp -r database dist/
 
 # Copy sample application.properties
-echo "Creating sample configuration..."
+echo Creating sample configuration...
 cat > dist/application.properties.sample << 'EOF'
+# Task Manager Application Configuration
+# 
+# SECURITY WARNING: This configuration uses useSSL=false for simplicity.
+# For production use, enable SSL with proper certificates:
+# useSSL=true&requireSSL=true&verifyServerCertificate=true
+
 db.url=jdbc:mysql://localhost:3306/task_manager_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
 db.username=root
 db.password=YOUR_MYSQL_PASSWORD
@@ -73,7 +79,6 @@ EOF
 
 # Make scripts executable
 chmod +x dist/run.sh
-chmod +x dist/build.sh 2>/dev/null || true
 
 # Create ZIP archive
 echo ""
