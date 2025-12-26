@@ -43,6 +43,12 @@
 .button-secondary { -fx-background-color: #95a5a6; }
 .button-secondary:hover { -fx-background-color: #7f8c8d; }
 
+.button-info { -fx-background-color: #9b59b6; }
+.button-info:hover { -fx-background-color: #8e44ad; }
+
+.button-primary { -fx-background-color: -fx-primary; }
+.button-primary:hover { -fx-background-color: #2980b9; }
+
 /* Card */
 .card {
     -fx-background-color: -fx-card-background;
@@ -165,4 +171,97 @@
 
 .scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
     -fx-background-color: #95a5a6;
+}
+
+/* Calendar History Styles */
+.calendar-grid {
+    -fx-background-color: white;
+}
+
+.header-panel {
+    -fx-background-color: -fx-card-background;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+.header-title {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-weight: bold;
+}
+
+.month-label {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bold;
+}
+
+.section-title {
+    -fx-text-fill: -fx-text-primary;
+    -fx-font-weight: bold;
+}
+
+.subsection-title {
+    -fx-text-fill: -fx-text-secondary;
+}
+
+.legend-panel {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 4;
+}
+
+.legend-title {
+    -fx-text-fill: -fx-text-secondary;
+}
+
+.legend-text {
+    -fx-font-size: 11;
+    -fx-text-fill: -fx-text-secondary;
+}
+
+.legend-box {
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1;
+}
+
+.panel {
+    -fx-background-color: -fx-card-background;
+    -fx-padding: 10;
+}
+
+.split-pane {
+    -fx-background-color: -fx-background;
+}
+
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.scroll-pane {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: white;
+}
+
+.status-bar {
+    -fx-background-color: #34495e;
+    -fx-padding: 8 15;
+}
+
+.status-bar .label {
+    -fx-text-fill: white;
+}
+
+.tool-bar {
+    -fx-background-color: #34495e;
+    -fx-padding: 8 15;
+}
+
+.tool-bar .button {
+    -fx-text-fill: white;
 }

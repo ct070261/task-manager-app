@@ -1,12 +1,15 @@
 package com.taskmanager.dao;
 
+import com.taskmanager.model.DayStatistics;
 import com.taskmanager.model.Task;
 import com.taskmanager.model.Task.Priority;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Data Access Object cho Task
@@ -259,6 +262,40 @@ public class TaskDAO {
         }
         
         return tasks;
+    }
+    
+    /**
+     * Lấy thống kê tasks theo từng ngày trong khoảng thời gian
+     * Trả về Map với key là LocalDate và value là DayStatistics
+     */
+    public Map<LocalDate, DayStatistics> getStatisticsByDateRange(LocalDate startDate, LocalDate endDate) throws SQLException {
+        String sql = "SELECT task_date, " +
+                    "COUNT(*) as total_tasks, " +
+                    "SUM(CASE WHEN completed = true THEN 1 ELSE 0 END) as completed_tasks " +
+                    "FROM tasks WHERE task_date BETWEEN ? AND ? " +
+                    "GROUP BY task_date";
+        
+        Map<LocalDate, DayStatistics> statsMap = new HashMap<>();
+        
+        try (Connection conn = dbConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setDate(1, Date.valueOf(startDate));
+            stmt.setDate(2, Date.valueOf(endDate));
+            
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    LocalDate date = rs.getDate("task_date").toLocalDate();
+                    int totalTasks = rs.getInt("total_tasks");
+                    int completedTasks = rs.getInt("completed_tasks");
+                    
+                    DayStatistics stats = new DayStatistics(date, totalTasks, completedTasks);
+                    statsMap.put(date, stats);
+                }
+            }
+        }
+        
+        return statsMap;
     }
     
     /**

@@ -22,6 +22,7 @@
                 </Menu>
                 <Menu text="Xem">
                     <MenuItem text="Danh sách Tasks" onAction="#handleShowTasks"/>
+                    <MenuItem text="Lịch sử công việc" onAction="#handleShowCalendarHistory" accelerator="Shortcut+H"/>
                     <MenuItem text="Đánh giá cuối ngày" onAction="#handleShowDailyReview" accelerator="Shortcut+R"/>
                     <MenuItem text="Thống kê" onAction="#handleShowStatistics" accelerator="Shortcut+S"/>
                 </Menu>
@@ -37,6 +38,7 @@
                 <Button text="Hôm nay" onAction="#handleToday"/>
                 <Button text="Copy Tasks" onAction="#handleCopyTasks" styleClass="button-warning"/>
                 <Separator orientation="VERTICAL"/>
+                <Button text="Lịch sử" onAction="#handleShowCalendarHistory" styleClass="button-info"/>
                 <Button text="Đánh giá cuối ngày" onAction="#handleShowDailyReview"/>
                 <Button text="Thống kê" onAction="#handleShowStatistics"/>
             </ToolBar>
