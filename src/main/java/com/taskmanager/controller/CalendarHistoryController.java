@@ -192,6 +192,8 @@ public class CalendarHistoryController {
         cell.setOnMouseClicked(event -> {
             selectedDate = date;
             loadDayDetails(date);
+            // TODO: Optimization - instead of re-rendering entire calendar, 
+            // update only the border styling of previous and current selection
             renderCalendar(); // Re-render to update selection
         });
         
