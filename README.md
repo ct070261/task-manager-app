@@ -67,7 +67,45 @@
    - Community Edition (miễn phí): https://www.jetbrains.com/idea/download/
    - Hoặc Ultimate Edition
 
-## 🚀 Hướng dẫn cài đặt
+## 🚀 Build ứng dụng thành Standalone App
+
+### Cách nhanh nhất - Sử dụng Script Build:
+
+#### Windows:
+```bash
+git clone https://github.com/ct070261/task-manager-app.git
+cd task-manager-app
+build.bat
+```
+
+#### Linux/Mac:
+```bash
+git clone https://github.com/ct070261/task-manager-app.git
+cd task-manager-app
+chmod +x build.sh
+./build.sh
+```
+
+**Kết quả:** File JAR executable (~14MB) sẽ được tạo tại `target/task-manager-app-1.0.0-executable.jar`
+
+### Chạy ứng dụng sau khi build:
+
+#### Windows:
+```bash
+run.bat
+```
+
+#### Linux/Mac:
+```bash
+chmod +x run.sh
+./run.sh
+```
+
+**📘 Hướng dẫn build chi tiết:** Xem [BUILD.md](BUILD.md) để biết thêm các phương pháp build, cách phân phối, tạo installer, và troubleshooting.
+
+---
+
+## 🚀 Hướng dẫn cài đặt từ Source Code
 
 ### Bước 1: Clone repository
 
