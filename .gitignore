@@ -31,3 +31,9 @@ mvnw.cmd
 
 # Virtual machine crash logs
 hs_err_pid*
+
+# Distribution folder
+dist/
+
+# Maven generated files
+dependency-reduced-pom.xml
